@@ -50,6 +50,14 @@
                 transition: all 0.3s;
                 transform-origin: 50% 80%;
                 transform: rotate(10deg);
+                animation-name: running_movement;
+                animation-duration: 0.4s;
+                animation-iteration-count: infinite;
+            }
+            @keyframes running_movement{
+                0%{transform: rotate(10deg);}
+                50%{transform: rotate(11deg);}
+                100%{transform: rotate(10deg);}
             }
             #bkg_rect{
                 fill: rgb(255, 255, 255);
