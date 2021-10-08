@@ -1,8 +1,10 @@
 <html>
     <button onclick="toggle_run()">Toggle Run</button>
+    <p>You can also use the keyboard arrows.</p>
     <br>
     <svg width="600" height="800">
         <rect id="bkg_rect" width="600" height="800"/>
+        <g id="character_box">
         <g id="character" class="running">
             <!-- <circle class="skn" cx="300" cy="250" r="40" /> -->
             <g id="j_l_arm" class="upper_joint">
@@ -35,7 +37,12 @@
                 </g>
             </g>
         </g>
+        </g>
         <style>
+            #character_box{
+                transform-origin: center;
+                transition: all 0.2s;
+            }
             #character{
                 transition: all 0.5s;
             }
@@ -120,7 +127,7 @@
             .running #j_l_shin{
                 animation-name: running_li;
             }
-            
+             .flip{transform: scaleX(-1);}
 
         </style>
     </svg>
@@ -129,5 +136,21 @@
         function toggle_run(){
             document.getElementById("character").classList.toggle("running")
         }
+        document.addEventListener("keydown",(e)=>{
+            if(e.key=="ArrowRight" || e.key=="ArrowLeft"){
+                document.getElementById("character").classList.add("running")
+                if(e.key=="ArrowLeft"){
+                    document.getElementById("character_box").classList.add("flip")
+                }else{
+                    
+                    document.getElementById("character_box").classList.remove("flip")
+                }
+            }
+        })
+        document.addEventListener("keyup",(e)=>{
+            if(e.key=="ArrowRight" || e.key=="ArrowLeft"){
+                document.getElementById("character").classList.remove("running")
+            }
+        })
     </script>
 </html>
