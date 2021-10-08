@@ -1,4 +1,6 @@
 <html>
+    <button onclick="toggle_run()">Toggle Run</button>
+    <br>
     <svg width="600" height="800">
         <rect id="bkg_rect" width="600" height="800"/>
         <g id="character" class="running">
@@ -122,8 +124,10 @@
 
         </style>
     </svg>
-
+    
     <script>
-
+        function toggle_run(){
+            document.getElementById("character").classList.toggle("running")
+        }
     </script>
 </html>
